@@ -23,7 +23,13 @@ function AddBook(props) {
   };
 
   const submitForm = () => {
-    props.addBookMutation();
+    props.addBookMutation({
+      variables: {
+        name: name,
+        genre: genre,
+        authorId: authorId,
+      },
+    });
   };
 
   return (
