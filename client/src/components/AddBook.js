@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { graphql } from "react-apollo";
-import { getAuthorsQuery, addBookMutation } from "../queries/queries";
+import {
+  getAuthorsQuery,
+  addBookMutation,
+  getBooksQuery,
+} from "../queries/queries";
 import { flowRight as compose } from "lodash";
 
 function AddBook(props) {
@@ -29,6 +33,7 @@ function AddBook(props) {
         genre: genre,
         authorId: authorId,
       },
+      refetchQueries: [{ query: getBooksQuery }],
     });
   };
 
